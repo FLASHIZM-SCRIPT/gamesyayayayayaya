@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unblocked Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Unblocked Games</h1>
+            <p>Play a variety of fun and exciting games for free!</p>
+        </div>
+    </header>
+
+    <!-- Game List Section -->
+    <div class="game-list container" id="game-list">
+        <!-- The game cards will be inserted here dynamically via JavaScript -->
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Unblocked Games. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript to load games from JSON -->
+    <script>
+        // Fetch the games data from the games.json file
+        fetch('games.json')
+            .then(response => response.json())
+            .then(data => {
+                const gameListContainer = document.getElementById('game-list');
+
+                // Loop through each game and create a game card
+                data.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.classList.add('game-card');
+
+                    gameCard.innerHTML = `
+                        <img src="${game.image}" alt="${game.title}">
+                        <div class="game-details">
+                            <h2>${game.title}</h2>
+                            <p><strong>Tags:</strong> ${game.tags}</p>
+                            <p><strong>Description:</strong> ${game.description}</p>
+                            <a href="${game.embed}" target="_blank">Play Now</a>
+                        </div>
+                    `;
+
+                    // Append the game card to the game list
+                    gameListContainer.appendChild(gameCard);
+                });
+            })
+            .catch(error => console.error('Error loading the games:', error));
+    </script>
+
+</body>
+</html>
