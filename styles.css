@@ -1,8 +1,21 @@
+/* General Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #0b2545; /* Dark blue background */
   color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #162d4e; /* Slightly lighter blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 32px;
+  color: #ffd700; /* Yellow highlight */
 }
 
 .container {
@@ -13,7 +26,7 @@ body {
 }
 
 .card {
-  background-color: #162d4e; /* Slightly lighter blue for cards */
+  background-color: #162d4e;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -33,14 +46,21 @@ body {
 
 .card-title {
   padding: 10px;
-  background-color: #0a1e38; /* Darker blue for title */
+  background-color: #0a1e38;
   font-size: 18px;
   font-weight: bold;
-  color: #ffd700; /* Yellow title */
+  color: #ffd700;
 }
 
 .card:hover .card-title {
-  color: #f1c40f; /* Bright yellow on hover */
+  color: #f1c40f;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #162d4e;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
