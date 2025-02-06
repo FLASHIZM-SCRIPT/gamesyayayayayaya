@@ -36,6 +36,9 @@
             .then(data => {
                 const gameListContainer = document.getElementById('game-list');
 
+                // Clear any existing content before adding new games
+                gameListContainer.innerHTML = '';
+
                 // Loop through each game and create a game card
                 data.forEach(game => {
                     const gameCard = document.createElement('div');
