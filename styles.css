@@ -56,6 +56,33 @@ header h1 {
   color: #f1c40f;
 }
 
+.card-description {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card-buttons a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #ffd700;
+  color: #0a1e38;
+  font-weight: bold;
+}
+
+.card-buttons a:hover {
+  background-color: #f1c40f;
+}
+
 footer {
   text-align: center;
   padding: 10px;
@@ -68,3 +95,4 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
+
