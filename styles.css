@@ -1,111 +1,50 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 0px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0b2545; /* Dark blue background */
+  color: #fff;
 }
 
-/* Header Section */
-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2rem;
-}
-
-/* Main Container */
 .container {
-    width: 90%;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-/* Game List Section */
-.game-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
+.card {
+  background-color: #162d4e; /* Slightly lighter blue for cards */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
 
-/* Game Card */
-.game-card {
-    background-color: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Image Style */
-.game-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: 15px solid #fff; /* White border around image */
-    transition: transform 0.3s ease;
+.card img {
+  width: 100%;
+  height: auto;
 }
 
-/* Hover Effect for Image */
-.game-card:hover img {
-    transform: scale(1.1); /* Image expands when hovered */
+.card-title {
+  padding: 10px;
+  background-color: #0a1e38; /* Darker blue for title */
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffd700; /* Yellow title */
 }
 
-/* Game Details */
-.game-details {
-    padding: 20px;
+.card:hover .card-title {
+  color: #f1c40f; /* Bright yellow on hover */
 }
 
-.game-details h2 {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.game-details p {
-    font-size: 1rem;
-    color: #ddd;
-    margin-bottom: 15px;
-}
-
-.game-details a {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1rem;
-    border-radius: 5px;
-}
-
-.game-details a:hover {
-    background-color: #0056b3;
-}
-
-/* Footer Section */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: white;
-}
-
-footer p {
-    font-size: 1rem;
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
