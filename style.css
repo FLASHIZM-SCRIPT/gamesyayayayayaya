@@ -6,18 +6,17 @@
 }
 
 body {
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
     line-height: 1.6;
+    padding: 20px;
 }
 
 /* Header Section */
 header {
-    background-color: #333;
-    color: white;
-    padding: 40px 20px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 header h1 {
@@ -27,7 +26,6 @@ header h1 {
 
 header p {
     font-size: 1.2rem;
-    margin-top: 10px;
 }
 
 /* Main Container */
@@ -42,27 +40,31 @@ header p {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 /* Game Card */
 .game-card {
-    background-color: white;
+    background-color: #222;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 48%;
-    transition: transform 0.3s ease;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.game-card:hover {
-    transform: scale(1.05);
-}
-
+/* Image Style */
 .game-card img {
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #f4f4f9;
+    border-radius: 15px;
+    border: 15px solid #fff; /* White border around image */
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Image */
+.game-card:hover img {
+    transform: scale(1.1); /* Image expands when hovered */
 }
 
 /* Game Details */
@@ -71,14 +73,14 @@ header p {
 }
 
 .game-details h2 {
-    font-size: 1.8rem;
-    color: #333;
+    font-size: 1.5rem;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .game-details p {
     font-size: 1rem;
-    color: #666;
+    color: #ddd;
     margin-bottom: 15px;
 }
 
@@ -99,11 +101,11 @@ header p {
 
 /* Footer Section */
 footer {
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: 40px;
+    color: white;
+}
+
+footer p {
+    font-size: 1rem;
 }
