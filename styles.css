@@ -1,57 +1,120 @@
-/* Global styles */
+/* Global Styles */
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #000;       /* Black background */
+  color: #fff;                  /* White text */
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
-/* Header */
+
+/* Header with Top Bar & Shadow */
 header {
-  background-color: #1a001a;
+  background-color: #1a001a;    /* Dark purple */
   box-shadow: 0 2px 4px rgba(106, 13, 173, 0.8);
   padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
 }
-nav {
+
+header nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
-.logo {
+
+header .logo {
   font-size: 24px;
   font-weight: bold;
   color: #fff;
 }
-.search-bar input {
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-}
-/* Container */
+
+/* Container for Game Cards */
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Responsive grid */
   gap: 10px;
   padding: 20px;
 }
-/* Game Card */
+
+/* Game Card Styling */
 .game-card {
-  background-color: #1a001a;
-  border: 2px solid #6a0dad;
+  background-color: #1a001a;    /* Dark purple background */
+  border: 2px solid #6a0dad;    /* Purple border */
   border-radius: 10px;
   overflow: hidden;
-  height: 280px; /* a bit taller */
+  height: 220px;                /* Medium rectangular height */
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
+
 .game-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(106, 13, 173, 0.5);
 }
+
 .game-card img {
   width: 100%;
-  height:
+  height: 140px;                /* Image occupies the top portion */
+  object-fit: cover;
+}
+
+/* Game Title at Bottom */
+.game-title {
+  margin: 5px;
+  font-size: 14px;
+  text-align: center;
+  white-space: normal;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer */
+footer {
+  background-color: #1a001a;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 4px rgba(106, 13, 173, 0.8);
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 80%;
+  max-width: 800px;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
