@@ -3,15 +3,38 @@
         "title": "Draw the Car Path",
         "embed": "https://cloud.onlinegames.io/games/2021/4/draw-the-car-path/index-og.html",
         "image": "https://www.onlinegames.io/media/posts/936/responsive/3-xs.jpg",
-        "tags": ["1-player", "2d", "brain", "car", "drawing", "free", "html5", "kids", "logic", "mobile", "mouse", "physics", "puzzle"],
+        "tags": [
+            "1-player",
+            "2d",
+            "brain",
+            "car",
+            "drawing",
+            "free",
+            "html5",
+            "kids",
+            "logic",
+            "mobile",
+            "mouse",
+            "physics",
+            "puzzle"
+        ],
         "description": "Guide cars to their parking spots by drawing paths. Avoid crashes and complete 30 challenging levels."
     },
     {
         "title": "Crazy Moto Racing",
         "embed": "https://cloud.onlinegames.io/games/2022/unity3/crazy-moto-racing/index-og.html",
         "image": "https://www.onlinegames.io/media/posts/931/responsive/crazy-moto-racing-xs.jpg",
-        "tags": ["1-player", "3d", "bike", "driving", "endless", "free", "racing", "speed", "unity"],
+        "tags": [
+            "1-player",
+            "3d",
+            "bike",
+            "driving",
+            "endless",
+            "free",
+            "racing",
+            "speed",
+            "unity"
+        ],
         "description": "Test your speed and skill in this 3D motorcycle racing game. Compete against rivals or race against time."
     }
-    // Add more games as needed
 ]
