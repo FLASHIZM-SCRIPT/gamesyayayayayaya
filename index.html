@@ -3,46 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MyGamePortal</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Game Portal</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with Logo and Navigation -->
+  <!-- Header Section -->
   <header>
-    <div class="logo">MyGamePortal</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Trending</a>
-      <a href="#">Categories</a>
-      <a href="#">About</a>
-    </nav>
+    <div class="logo">Game Portal</div>
+    <!-- Optional: add navigation links here if needed -->
   </header>
 
-  <!-- Main Container -->
-  <div class="container">
-    <div class="game-grid">
-      <!-- Game Card 1 -->
-      <div class="game-card">
-        <img src="images/game1.jpg" alt="Game 1">
-        <div class="game-title">Game Title 1</div>
-      </div>
-      <!-- Game Card 2 -->
-      <div class="game-card">
-        <img src="images/game2.jpg" alt="Game 2">
-        <div class="game-title">Game Title 2</div>
-      </div>
-      <!-- Game Card 3 -->
-      <div class="game-card">
-        <img src="images/game3.jpg" alt="Game 3">
-        <div class="game-title">Game Title 3</div>
-      </div>
-      <!-- Additional game cards go here -->
-    </div>
+  <!-- Main Container for Game Cards -->
+  <div class="container" id="game-container">
+    <!-- Game cards will be dynamically inserted here -->
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 MyGamePortal. All rights reserved.</p>
-  </footer>
+  <!-- JavaScript to Fetch and Display Games from games.json -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fetch games.json data
+      fetch('games.json')
+        .then(response => response.json())
+        .then(games => {
+          const container = document.getElementById('game-container');
+          games.forEach(game => {
+            // Create the game card container
+            const card = document.createElement('div');
+            card.classList.add('game-card');
+
+            // Create the image element
+            const img = document.createElement('img');
+            img.src = game.image;
+            img.alt = game.title;
+
+            // Create the game title element (which will slide up on hover)
+            const title = document.createElement('div');
+            title.classList.add('game-title');
+            title.textContent = game.title;
+
+            // Append the image and title to the game card
+            card.appendChild(img);
+            card.appendChild(title);
+
+            // Optionally, you can add an event listener here if you want to
+            // open the embed in a modal or a new page when the card is clicked.
+            // For example:
+            // card.addEventListener('click', () => {
+            //   window.location.href = 'game.html?game=' + encodeURIComponent(game.title);
+            // });
+
+            // Append the game card to the container
+            container.appendChild(card);
+          });
+        })
+        .catch(error => {
+          console.error('Error loading games:', error);
+        });
+    });
+  </script>
 </body>
 </html>
