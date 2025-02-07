@@ -7,26 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Modern Top Bar -->
+  <!-- Top Bar with Logo, Search, and (optional) Navigation -->
   <header class="top-bar">
     <div class="logo">Game Portal</div>
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Search games...">
     </div>
-    <button id="fullscreenBtn">Fullscreen</button>
   </header>
   
-  <!-- Main Game Page Layout -->
+  <!-- Main Layout: Game Embed and Sidebar -->
   <div class="game-page-container">
     <!-- Game Embed Area -->
-    <main class="game-embed-container">
+    <div class="game-embed-wrapper">
       <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
-    </main>
-    <!-- Sidebar with Other Games -->
+      <!-- Fullscreen button overlay on the embed -->
+      <button id="fullscreenBtn" class="embed-fullscreen-btn">⛶</button>
+    </div>
+    
+    <!-- Sidebar with Modern Buttons -->
     <aside class="sidebar">
       <h2>Other Games</h2>
       <div class="sidebar-game-list" id="sidebarGameList">
-        <!-- Sidebar game cards will be inserted dynamically -->
+        <!-- Sidebar game buttons will be inserted dynamically -->
       </div>
     </aside>
   </div>
