@@ -1,58 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const gameContainer = document.getElementById('gameContainer');
-  const gameModal = document.getElementById('gameModal');
-  const gameIframe = document.getElementById('gameIframe');
-  const closeBtn = document.querySelector('.modal .close');
+    fetch('data/games.json')
+        .then(response => response.json())
+        .then(games => {
+            const gameList = document.getElementById('game-list');
+            games.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
 
-  // Fetch games from games.json
-  fetch('games.json')
-    .then(response => response.json())
-    .then(games => {
-      displayGames(games);
-    })
-    .catch(error => console.error('Error loading games:', error));
+                const gameImage = document.createElement('img');
+                gameImage.src = game.image;
+                gameImage.alt = game.title;
+                gameImage.className = 'game-image';
 
-  // Function to create and display game cards
-  function displayGames(games) {
-    gameContainer.innerHTML = ''; // Clear existing content
-    games.forEach(game => {
-      const card = document.createElement('div');
-      card.classList.add('game-card');
-      
-      // Create image element for the card
-      const img = document.createElement('img');
-      img.src = game.image;
-      img.alt = game.title;
-      card.appendChild(img);
+                const gameContent = document.createElement('div');
+                gameContent.className = 'game-content';
 
-      // Create title element at the bottom of the card
-      const title = document.createElement('div');
-      title.classList.add('game-title');
-      title.textContent = game.title;
-      card.appendChild(title);
+                const gameTitle = document.createElement('h2');
+                gameTitle.className = 'game-title';
+                gameTitle.textContent = game.title;
 
-      // Add click event: open modal and load the embed in the iframe
-      card.addEventListener('click', () => {
-        gameIframe.src = game.embed;
-        gameModal.style.display = 'block';
-      });
+                const gameDescription = document.createElement('p');
+                gameDescription.className = 'game-description';
+                gameDescription.textContent = game.description;
 
-      gameContainer.appendChild(card);
-    });
-  }
+                const playButton = document.createElement('a');
+                playButton.className = 'play-button';
+                playButton.href = game.embed;
+                playButton.target = '_blank';
+                playButton.textContent = 'Play Now';
 
-  // Close modal when close button is clicked
-  closeBtn.addEventListener('click', () => {
-    gameModal.style.display = 'none';
-    gameIframe.src = ''; // Clear iframe to stop game playback
-  });
+                gameContent.appendChild(gameTitle);
+                gameContent.appendChild(gameDescription);
+                gameContent.appendChild(playButton);
 
-  // Close modal when clicking outside the modal content
-  window.addEventListener('click', (e) => {
-    if (e.target === gameModal) {
-      gameModal.style.display = 'none';
-      gameIframe.src = '';
-    }
-  });
+                gameCard.appendChild(gameImage);
+                gameCard.appendChild(gameContent);
+
+                gameList.appendChild(gameCard);
+            });
+        })
+        .catch(error => console.error('Error fetching games:', error));
 });
-
