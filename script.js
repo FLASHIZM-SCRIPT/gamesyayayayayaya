@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(games => {
             displayGames(games);
 
-            // Search functionality
+            // Implement search functionality
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase();
                 const filteredGames = games.filter(game =>
@@ -20,11 +20,34 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error loading games:', error));
 
-    // Function to display games
+    // Function to display games in the container
     function displayGames(games) {
-        gameContainer.innerHTML = '';
+        gameContainer.innerHTML = ''; // Clear existing content
+
         games.forEach(game => {
-            const gameCard = document.create
-::contentReference[oaicite:0]{index=0}
- 
-y
+            // Create the game card element
+            const gameCard = document.createElement('div');
+            gameCard.classList.add('game-card');
+
+            // Create a link element wrapping the image and title (so clicking anywhere opens the game)
+            const link = document.createElement('a');
+            link.href = game.embed;
+            link.target = '_blank';
+
+            // Create and append the game image
+            const img = document.createElement('img');
+            img.src = game.image;
+            img.alt = game.title;
+            link.appendChild(img);
+
+            // Create and append the game title
+            const title = document.createElement('h3');
+            title.textContent = game.title;
+            link.appendChild(title);
+
+            // Append the link to the game card, then the game card to the container
+            gameCard.appendChild(link);
+            gameContainer.appendChild(gameCard);
+        });
+    }
+});
