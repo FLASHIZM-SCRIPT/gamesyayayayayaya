@@ -7,31 +7,42 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header with Logo and Navigation -->
   <header>
+    <div class="logo">MyGamePortal</div>
     <nav>
-      <div class="logo">MyGamePortal</div>
-      <!-- Add additional nav items if needed -->
+      <a href="#">Home</a>
+      <a href="#">Trending</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
     </nav>
   </header>
 
-  <main>
-    <div class="container" id="gameContainer">
-      <!-- Game cards will be inserted here dynamically -->
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 MyGamePortal. All rights reserved.</p>
-  </footer>
-
-  <!-- Modal for displaying game embeds -->
-  <div id="gameModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <iframe id="gameIframe" src="" frameborder="0"></iframe>
+  <!-- Main Container -->
+  <div class="container">
+    <div class="game-grid">
+      <!-- Game Card 1 -->
+      <div class="game-card">
+        <img src="images/game1.jpg" alt="Game 1">
+        <div class="game-title">Game Title 1</div>
+      </div>
+      <!-- Game Card 2 -->
+      <div class="game-card">
+        <img src="images/game2.jpg" alt="Game 2">
+        <div class="game-title">Game Title 2</div>
+      </div>
+      <!-- Game Card 3 -->
+      <div class="game-card">
+        <img src="images/game3.jpg" alt="Game 3">
+        <div class="game-title">Game Title 3</div>
+      </div>
+      <!-- Additional game cards go here -->
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyGamePortal. All rights reserved.</p>
+  </footer>
 </body>
 </html>
