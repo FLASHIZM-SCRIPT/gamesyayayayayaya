@@ -1,1 +1,98 @@
+:root {
+  --bg-color: #121212;           /* Overall background */
+  --card-bg: #1f1f1f;            /* Card background */
+  --primary-purple: #6c63ff;     /* Purple accent */
+  --text-color: #ffffff;         /* White text */
+  --glow-color: rgba(108, 99, 255, 0.7);  /* Purple glow on hover */
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header (optional for a complete site) */
+header {
+  background-color: var(--card-bg);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+header h1 {
+  color: var(--primary-purple);
+  font-size: 2rem;
+}
+
+/* Container for the game grid */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Game Card Styles */
+.game-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 2px solid var(--primary-purple);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* Game Card Image */
+.game-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Game Title: initially hidden below the card */
+.game-card .game-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;  /* Hidden below the card initially */
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: bottom 0.3s ease;
+}
+
+/* On hover, slide the title upward into view */
+.game-card:hover .game-title {
+  bottom: 0;
+}
+
+/* Footer (optional) */
+footer {
+  background-color: var(--card-bg);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.6);
+}
 
