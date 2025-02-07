@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Portal - Play Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Modern Top Bar -->
+  <header class="top-bar">
+    <div class="logo">Game Portal</div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search games...">
+    </div>
+    <button id="fullscreenBtn">Fullscreen</button>
+  </header>
+  
+  <!-- Main Game Page Layout -->
+  <div class="game-page-container">
+    <!-- Game Embed Area -->
+    <main class="game-embed-container">
+      <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+    </main>
+    <!-- Sidebar with Other Games -->
+    <aside class="sidebar">
+      <h2>Other Games</h2>
+      <div class="sidebar-game-list" id="sidebarGameList">
+        <!-- Sidebar game cards will be inserted dynamically -->
+      </div>
+    </aside>
+  </div>
+  
+  <script src="game.js"></script>
+</body>
+</html>
