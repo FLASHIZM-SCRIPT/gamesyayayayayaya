@@ -27,3 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
             const gameCard = document.create
 ::contentReference[oaicite:0]{index=0}
  
+y
