@@ -4,62 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Game Portal</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Header -->
   <header>
     <div class="logo">Game Portal</div>
-    <!-- Optional: add navigation links here if needed -->
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Trending</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
+    </nav>
   </header>
 
   <!-- Main Container for Game Cards -->
-  <div class="container" id="game-container">
-    <!-- Game cards will be dynamically inserted here -->
+  <div class="container">
+    <div class="game-grid" id="gameGrid">
+      <!-- Game cards are inserted dynamically via script.js -->
+    </div>
   </div>
 
-  <!-- JavaScript to Fetch and Display Games from games.json -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Fetch games.json data
-      fetch('games.json')
-        .then(response => response.json())
-        .then(games => {
-          const container = document.getElementById('game-container');
-          games.forEach(game => {
-            // Create the game card container
-            const card = document.createElement('div');
-            card.classList.add('game-card');
+  <footer>
+    <p>&copy; 2025 Game Portal. All rights reserved.</p>
+  </footer>
 
-            // Create the image element
-            const img = document.createElement('img');
-            img.src = game.image;
-            img.alt = game.title;
-
-            // Create the game title element (which will slide up on hover)
-            const title = document.createElement('div');
-            title.classList.add('game-title');
-            title.textContent = game.title;
-
-            // Append the image and title to the game card
-            card.appendChild(img);
-            card.appendChild(title);
-
-            // Optionally, you can add an event listener here if you want to
-            // open the embed in a modal or a new page when the card is clicked.
-            // For example:
-            // card.addEventListener('click', () => {
-            //   window.location.href = 'game.html?game=' + encodeURIComponent(game.title);
-            // });
-
-            // Append the game card to the container
-            container.appendChild(card);
-          });
-        })
-        .catch(error => {
-          console.error('Error loading games:', error);
-        });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
