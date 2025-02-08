@@ -3,8 +3,8 @@
   --card-bg: #1f1f1f;
   --sidebar-bg: #2d1534;
   --modal-bg: rgba(18, 18, 18, 0.95);
-  --primary-purple: #a678ff; /* A soft pastel purple for a cutesy vibe */
-  --accent-glow: rgba(166, 120, 255, 0.6);
+  --primary-purple: #4b3f72; /* Darker, richer purple */
+  --accent-glow: rgba(75, 63, 114, 0.6);
   --text-color: #ffffff;
   --radius: 12px;
   --transition: 0.3s ease;
@@ -108,7 +108,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Content Area */
+/* Content Area & Game Grid */
 .content {
   flex: 1;
   padding: 20px;
@@ -241,7 +241,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Modal Sidebar */
+/* Modal Sidebar (Recommended Games) */
 .modal-sidebar {
   flex: 1;
   background-color: var(--card-bg);
@@ -295,7 +295,7 @@ footer {
   box-shadow: 0 -2px 8px var(--accent-glow);
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .modal-body {
     flex-direction: column;
