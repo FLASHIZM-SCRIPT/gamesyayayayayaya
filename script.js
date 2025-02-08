@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModalBtn = document.getElementById('closeModal');
   const sidebarContainer = document.getElementById('sidebarGames');
   const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const mainSearch = document.getElementById('mainSearch');
+  const filterButtons = document.querySelectorAll('.filter-btn');
 
-  // Function to render the homepage game grid
+  // Render game grid on homepage
   function renderGameGrid(games) {
     gameGrid.innerHTML = '';
     games.forEach(game => {
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       titleDiv.textContent = game.title;
       card.appendChild(titleDiv);
 
-      // On click, open modal and load game embed
+      // When a game card is clicked, open the modal and load the game embed
       card.addEventListener('click', () => {
         openModal(game);
       });
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fetch games.json
+  // Fetch games from games.json
   fetch('games.json')
     .then(response => response.json())
     .then(data => {
@@ -42,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching games:', error));
 
-  // Open modal and load selected game embed, plus populate sidebar
+  // Open modal with selected game embed and populate sidebar with recommendations
   function openModal(selectedGame) {
     gameIframe.src = selectedGame.embed;
     modalOverlay.style.display = 'flex';
@@ -55,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gameIframe.src = '';
   });
 
-  // Fullscreen button
+  // Fullscreen functionality
   fullscreenBtn.addEventListener('click', () => {
     if (gameIframe.requestFullscreen) {
       gameIframe.requestFullscreen();
@@ -66,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Populate sidebar with recommended games (exclude selected)
+  // Populate recommended games sidebar (excluding the currently selected game)
   function populateSidebar(selectedGame) {
     sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
@@ -90,4 +92,30 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebarContainer.appendChild(sidebarGame);
     });
   }
+
+  // Main search functionality: filter games by title, tags, or description
+  mainSearch.addEventListener('input', () => {
+    const query = mainSearch.value.toLowerCase();
+    const filteredGames = gamesData.filter(game =>
+      game.title.toLowerCase().includes(query) ||
+      game.tags.toLowerCase().includes(query) ||
+      game.description.toLowerCase().includes(query)
+    );
+    renderGameGrid(filteredGames);
+  });
+
+  // Sidebar filter buttons: filter games based on tag (assuming tags are comma-separated)
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      if (filter === 'all') {
+        renderGameGrid(gamesData);
+      } else {
+        const filteredGames = gamesData.filter(game => {
+          return game.tags.toLowerCase().split(',').map(tag => tag.trim()).includes(filter);
+        });
+        renderGameGrid(filteredGames);
+      }
+    });
+  });
 });
