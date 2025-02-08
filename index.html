@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Game Portal</title>
+  <title>AllCutesy Game Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with Logo and Search -->
+  <!-- Header with Logo and Search Bar -->
   <header>
-    <div class="logo">Game Portal</div>
-    <nav>
+    <div class="header-left">
+      <div class="logo">AllCutesy</div>
+    </div>
+    <div class="header-right">
       <input type="text" id="searchInput" placeholder="Search games...">
-    </nav>
+    </div>
   </header>
 
   <!-- Main Layout with Sidebar & Content -->
@@ -37,20 +39,21 @@
           <img src="images/racing-icon.png" alt="Racing">
           <span>Racing</span>
         </button>
-        <!-- Add additional filter buttons as needed -->
+        <!-- Add more sorting buttons as needed -->
       </div>
     </aside>
 
-    <!-- Main Content Area for Game Cards -->
+    <!-- Main Content Area -->
     <main class="content">
       <div class="game-grid" id="gameGrid">
-        <!-- Game cards are dynamically inserted here via script.js -->
+        <!-- Game cards will be inserted dynamically via script.js -->
       </div>
     </main>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Game Portal. All rights reserved.</p>
+    <p>&copy; 2025 AllCutesy Game Portal. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
