@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('searchInput');
   const filterButtons = document.querySelectorAll('.filter-btn');
 
-  // Function to render game cards
+  // Render games to the grid
   function renderGames(games) {
     gameGrid.innerHTML = '';
     games.forEach(game => {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       titleDiv.textContent = game.title;
       card.appendChild(titleDiv);
 
-      // On click, navigate to the universal game page
+      // Navigate to game page on click
       card.addEventListener('click', () => {
         window.location.href = `game.html?game=${encodeURIComponent(game.title)}`;
       });
@@ -39,20 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching games:', error));
 
-  // Search functionality: filter games by title, tags, or description
+  // Search functionality
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
-    const filteredGames = gamesData.filter(game => {
-      return (
-        game.title.toLowerCase().includes(query) ||
-        game.tags.toLowerCase().includes(query) ||
-        game.description.toLowerCase().includes(query)
-      );
-    });
+    const filteredGames = gamesData.filter(game =>
+      game.title.toLowerCase().includes(query) ||
+      game.tags.toLowerCase().includes(query) ||
+      game.description.toLowerCase().includes(query)
+    );
     renderGames(filteredGames);
   });
 
-  // Filter buttons: sort/filter games based on a category (assuming tags are comma-separated)
+  // Filtering via sidebar buttons
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
