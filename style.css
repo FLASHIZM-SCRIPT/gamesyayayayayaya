@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-/* Global Body */
+/* Global */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -24,7 +24,7 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/* Header for Homepage */
 .header {
   background-color: var(--card-bg);
   padding: 15px 30px;
@@ -55,14 +55,12 @@ body {
   border-color: var(--primary-purple);
 }
 
-/* Main Layout */
+/* Container for Homepage */
 .container {
   display: flex;
   width: 100%;
   padding: 20px;
 }
-
-/* Sidebar */
 .sidebar {
   width: 220px;
   background-color: var(--sidebar-bg);
@@ -100,8 +98,6 @@ body {
   background-color: var(--primary-purple);
   transform: scale(1.05);
 }
-
-/* Content Area & Game Grid */
 .content {
   flex: 1;
 }
@@ -110,8 +106,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
-
-/* Game Card */
 .game-card {
   position: relative;
   background-color: var(--card-bg);
@@ -144,8 +138,162 @@ body {
 .game-card:hover .game-title {
   bottom: 0;
 }
+footer {
+  background-color: var(--card-bg);
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  box-shadow: 0 -2px 8px var(--accent-glow);
+  color: var(--text-color);
+}
 
-/* Footer */
+/* Top Bar for Game Page */
+.top-bar {
+  background-color: var(--card-bg);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-purple);
+  cursor: pointer;
+}
+.modal-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-purple);
+}
+#modalSearch {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid var(--primary-purple);
+  border-radius: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  outline: none;
+  transition: border-color var(--transition);
+}
+#modalSearch:focus {
+  border-color: var(--primary-purple);
+}
+
+/* Game Playing Page Layout */
+.game-page-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game-embed-wrapper {
+  width: 95%;
+  max-width: 1400px;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 4px 16px var(--accent-glow);
+  margin-bottom: 20px;
+}
+.embed-container {
+  position: relative;
+}
+.embed-container iframe {
+  width: 100%;
+  height: 700px; /* Increased height */
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+.fullscreen-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--primary-purple);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+.fullscreen-btn:hover {
+  transform: scale(1.1);
+}
+.like-dislike-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+.like-btn, .dislike-btn {
+  background-color: var(--primary-purple);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+.like-btn:disabled, .dislike-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Recommended Games Section */
+.recommended-games {
+  width: 95%;
+  max-width: 1400px;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+.recommended-games h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--primary-purple);
+}
+.sidebar-games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.sidebar-game {
+  background-color: var(--card-bg);
+  border: 2px solid var(--primary-purple);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  width: 150px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.sidebar-game:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.sidebar-game img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+.sidebar-game-title {
+  padding: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: var(--card-bg);
+}
+
+/* Footer for Game Page */
 footer {
   background-color: var(--card-bg);
   text-align: center;
