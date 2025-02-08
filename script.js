@@ -1,31 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   let gamesData = [];
-  
-  // Get elements
   const gameGrid = document.getElementById("gameGrid");
   const searchInput = document.getElementById("searchInput");
   const filterButtons = document.querySelectorAll(".filter");
 
-  // Function to render game cards in the grid
+  // Function to render the game grid
   function renderGameGrid(games) {
     gameGrid.innerHTML = "";
     games.forEach(game => {
       const card = document.createElement("div");
       card.className = "game-card";
 
-      // Create and append image element
       const img = document.createElement("img");
       img.src = game.image;
       img.alt = game.title;
       card.appendChild(img);
 
-      // Create and append title element
       const titleDiv = document.createElement("div");
       titleDiv.className = "game-title";
       titleDiv.textContent = game.title;
       card.appendChild(titleDiv);
 
-      // When the card is clicked, navigate to game.html with a query parameter
+      // On click, navigate to the game embed page with the selected game title
       card.addEventListener("click", () => {
         window.location.href = "game.html?game=" + encodeURIComponent(game.title);
       });
@@ -43,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => console.error("Error fetching games:", error));
 
-  // Search filtering: filter games based on title, tags, or description
+  // Search functionality: filter games by title, tags, or description
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
     const filteredGames = gamesData.filter(game =>
