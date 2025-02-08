@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get query parameter (selected game title)
+  // Read selected game title from URL query parameter
   const params = new URLSearchParams(window.location.search);
   const gameTitle = params.get('game');
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(data => {
       gamesData = data;
-      // Find and load the selected game embed URL
+      // Find the selected game
       const selectedGame = gamesData.find(game => game.title === gameTitle);
       if (selectedGame) {
         gameIframe.src = selectedGame.embed;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching games:', error));
 
-  // Populate recommended sidebar (all games except the selected one)
+  // Populate recommended games sidebar (exclude selected game)
   function populateSidebar(selectedGame) {
     sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fullscreen functionality for the iframe
+  // Fullscreen functionality
   fullscreenBtn.addEventListener('click', () => {
     if (gameIframe.requestFullscreen) {
       gameIframe.requestFullscreen();
@@ -75,10 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
       dislikeBtn.disabled = true;
       likeBtn.classList.add('selected');
       console.log("Liked:", gameTitle);
-      // Optionally send rating info to a server
+      // Optionally, send rating to your server
     }
   });
-
   dislikeBtn.addEventListener('click', () => {
     if (!ratingGiven) {
       ratingGiven = true;
@@ -86,11 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
       dislikeBtn.disabled = true;
       dislikeBtn.classList.add('selected');
       console.log("Disliked:", gameTitle);
-      // Optionally send rating info to a server
+      // Optionally, send rating to your server
     }
   });
 
-  // Sidebar search filtering for recommended games
+  // Sidebar search filtering
   modalSearch.addEventListener('input', () => {
     const query = modalSearch.value.toLowerCase();
     sidebarContainer.innerHTML = '';
