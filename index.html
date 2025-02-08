@@ -7,22 +7,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header with Logo and Search -->
   <header>
     <div class="logo">Game Portal</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Trending</a>
-      <a href="#">Categories</a>
-      <a href="#">About</a>
+      <input type="text" id="searchInput" placeholder="Search games...">
     </nav>
   </header>
 
-  <!-- Main Container for Game Cards -->
-  <div class="container">
-    <div class="game-grid" id="gameGrid">
-      <!-- Game cards are inserted dynamically via script.js -->
-    </div>
+  <!-- Main Layout with Sidebar & Content -->
+  <div class="main-layout">
+    <!-- Sidebar with Sorting Icons -->
+    <aside class="filter-sidebar">
+      <h2>Sort By</h2>
+      <div class="filter-options">
+        <button class="filter-btn" data-filter="all">
+          <img src="images/all-icon.png" alt="All">
+          <span>All</span>
+        </button>
+        <button class="filter-btn" data-filter="action">
+          <img src="images/action-icon.png" alt="Action">
+          <span>Action</span>
+        </button>
+        <button class="filter-btn" data-filter="puzzle">
+          <img src="images/puzzle-icon.png" alt="Puzzle">
+          <span>Puzzle</span>
+        </button>
+        <button class="filter-btn" data-filter="racing">
+          <img src="images/racing-icon.png" alt="Racing">
+          <span>Racing</span>
+        </button>
+        <!-- Add additional filter buttons as needed -->
+      </div>
+    </aside>
+
+    <!-- Main Content Area for Game Cards -->
+    <main class="content">
+      <div class="game-grid" id="gameGrid">
+        <!-- Game cards are dynamically inserted here via script.js -->
+      </div>
+    </main>
   </div>
 
   <footer>
