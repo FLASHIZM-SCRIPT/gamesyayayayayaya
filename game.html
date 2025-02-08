@@ -14,25 +14,27 @@
     <input type="text" id="modalSearch" placeholder="Search recommended...">
   </header>
   
-  <!-- Game Embed and Like/Dislike Area -->
-  <div class="game-embed-wrapper">
-    <div class="embed-container">
-      <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
-      <button id="fullscreenBtn" class="fullscreen-btn" title="Fullscreen">⛶</button>
+  <!-- Game Playing Area -->
+  <div class="game-page-container">
+    <div class="game-embed-wrapper">
+      <div class="embed-container">
+        <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+        <button id="fullscreenBtn" class="fullscreen-btn" title="Fullscreen">⛶</button>
+      </div>
+      <div class="like-dislike-container">
+        <button id="likeBtn" class="like-btn">👍 Like</button>
+        <button id="dislikeBtn" class="dislike-btn">👎 Dislike</button>
+      </div>
     </div>
-    <div class="like-dislike-container">
-      <button id="likeBtn" class="like-btn">👍 Like</button>
-      <button id="dislikeBtn" class="dislike-btn">👎 Dislike</button>
-    </div>
+    
+    <!-- Recommended Games Sidebar -->
+    <section class="recommended-games">
+      <h3>Recommended Games</h3>
+      <div class="sidebar-games" id="sidebarGames">
+        <!-- Recommended game cards will be inserted dynamically -->
+      </div>
+    </section>
   </div>
-  
-  <!-- Recommended Games Sidebar -->
-  <aside class="recommended-sidebar">
-    <h3>Recommended Games</h3>
-    <div class="sidebar-games" id="sidebarGames">
-      <!-- Recommended game cards will be inserted dynamically -->
-    </div>
-  </aside>
   
   <script src="game.js"></script>
 </body>
