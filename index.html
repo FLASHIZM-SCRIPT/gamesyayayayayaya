@@ -7,80 +7,49 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Main Header with Logo and Search Bar -->
-  <header class="main-header">
-    <div class="header-left">
-      <div class="logo">DarkCutesy</div>
-    </div>
-    <div class="header-right">
-      <input type="text" id="mainSearch" placeholder="Search games...">
-    </div>
+  <!-- Header with Logo and Search Bar -->
+  <header class="header">
+    <div class="logo">DarkCutesy</div>
+    <input type="text" id="searchInput" placeholder="Search games...">
   </header>
-
-  <!-- Main Layout: Sidebar for Sorting & Full-width Content -->
-  <div class="main-layout">
-    <!-- Sorting Sidebar -->
-    <aside class="filter-sidebar">
-      <h2>Sort By</h2>
-      <div class="filter-options">
-        <button class="filter-btn" data-filter="all">
-          <img src="images/all-icon.png" alt="All">
-          <span>All</span>
-        </button>
-        <button class="filter-btn" data-filter="action">
-          <img src="images/action-icon.png" alt="Action">
-          <span>Action</span>
-        </button>
-        <button class="filter-btn" data-filter="puzzle">
-          <img src="images/puzzle-icon.png" alt="Puzzle">
-          <span>Puzzle</span>
-        </button>
-        <button class="filter-btn" data-filter="racing">
-          <img src="images/racing-icon.png" alt="Racing">
-          <span>Racing</span>
-        </button>
-        <!-- Add more filter buttons as needed -->
-      </div>
+  
+  <!-- Main Layout: Sidebar for Filtering & Content Area -->
+  <div class="container">
+    <!-- Sidebar (Filters) -->
+    <aside class="sidebar">
+      <h2>Filters</h2>
+      <button class="filter" data-filter="all">
+        <img src="images/all-icon.png" alt="All">
+        <span>All</span>
+      </button>
+      <button class="filter" data-filter="action">
+        <img src="images/action-icon.png" alt="Action">
+        <span>Action</span>
+      </button>
+      <button class="filter" data-filter="puzzle">
+        <img src="images/puzzle-icon.png" alt="Puzzle">
+        <span>Puzzle</span>
+      </button>
+      <button class="filter" data-filter="racing">
+        <img src="images/racing-icon.png" alt="Racing">
+        <span>Racing</span>
+      </button>
+      <!-- Add more filter buttons as needed -->
     </aside>
-
-    <!-- Content Area with Game Grid -->
+    
+    <!-- Main Content Area: Game Grid -->
     <main class="content">
       <div class="game-grid" id="gameGrid">
-        <!-- Game cards will be dynamically inserted here -->
+        <!-- Game cards are inserted dynamically via script.js -->
       </div>
     </main>
   </div>
-
-  <!-- Modal Overlay for Game Embed -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-window">
-      <!-- Modal Top Bar -->
-      <div class="modal-top-bar">
-        <div class="modal-logo">DarkCutesy</div>
-        <button class="close-modal" id="closeModal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <!-- Embed Area -->
-        <div class="embed-container">
-          <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
-          <button id="fullscreenBtn" class="fullscreen-btn">⛶</button>
-        </div>
-        <!-- Recommended Games Sidebar -->
-        <aside class="modal-sidebar">
-          <h3>Recommended</h3>
-          <div class="sidebar-games" id="sidebarGames">
-            <!-- Recommended game cards inserted dynamically -->
-          </div>
-        </aside>
-      </div>
-    </div>
-  </div>
-
+  
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 DarkCutesy Game Portal. All rights reserved.</p>
   </footer>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
