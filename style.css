@@ -1,10 +1,11 @@
 :root {
   --bg-color: #121212;
   --card-bg: #1f1f1f;
+  --sidebar-bg: #1a001a;
   --primary-purple: #6c63ff;
   --text-color: #ffffff;
   --accent-glow: rgba(108, 99, 255, 0.7);
-  --cutesy-radius: 12px;
+  --border-radius: 12px;
 }
 
 /* Reset */
@@ -22,8 +23,8 @@ body {
   line-height: 1.6;
 }
 
-/* Top Bar for Game Page */
-.top-bar {
+/* Header with Logo and Search */
+header {
   background-color: var(--card-bg);
   padding: 15px 30px;
   display: flex;
@@ -35,121 +36,133 @@ body {
   box-shadow: 0 2px 8px var(--accent-glow);
 }
 
-.top-bar .logo {
+.logo {
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--primary-purple);
 }
 
-.search-container {
+header nav {
   flex: 1;
-  margin: 0 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.search-container input {
-  width: 100%;
-  padding: 10px 15px;
+#searchInput {
+  padding: 10px;
   border: 1px solid var(--primary-purple);
   border-radius: 20px;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
-/* Main Game Page Layout */
-.game-page-container {
+/* Main Layout */
+.main-layout {
   display: flex;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-/* Game Embed Area */
-.game-embed-wrapper {
-  position: relative;
-  flex: 2;
-  margin-right: 20px;
-}
-
-.game-embed-wrapper iframe {
   width: 100%;
-  height: 500px;
-  border: none;
-  border-radius: var(--cutesy-radius);
-  box-shadow: 0 2px 8px var(--accent-glow);
 }
 
-/* Fullscreen Button Overlay on Embed */
-.embed-fullscreen-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: var(--primary-purple);
-  color: var(--text-color);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px var(--accent-glow);
-  transition: transform 0.3s ease;
-}
-.embed-fullscreen-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Sidebar with Modern Buttons */
-.sidebar {
-  flex: 1;
-  background-color: var(--card-bg);
-  border: 2px solid var(--primary-purple);
-  border-radius: var(--cutesy-radius);
+/* Sidebar for Sorting */
+.filter-sidebar {
+  width: 200px;
+  background-color: var(--sidebar-bg);
   padding: 20px;
-  max-height: 600px;
-  overflow-y: auto;
 }
 
-.sidebar h2 {
-  text-align: center;
+.filter-sidebar h2 {
   margin-bottom: 20px;
   color: var(--primary-purple);
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.sidebar-game-list {
+.filter-options {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
-.sidebar-game {
+.filter-btn {
   display: flex;
   align-items: center;
-  background-color: var(--bg-color);
-  padding: 10px;
-  border-radius: var(--cutesy-radius);
+  gap: 10px;
+  padding: 8px 12px;
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.sidebar-game:hover {
-  background-color: var(--primary-purple);
-  transform: translateX(5px);
+.filter-btn img {
+  width: 24px;
+  height: 24px;
 }
 
-.sidebar-game img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: var(--cutesy-radius);
-  border: 1px solid var(--primary-purple);
-  margin-right: 10px;
-}
-
-.sidebar-game-title {
+.filter-btn span {
   font-size: 1rem;
-  color: var(--text-color);
 }
 
-/* Footer (for index.html if needed) */
+.filter-btn:hover {
+  background-color: var(--primary-purple);
+  transform: scale(1.05);
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Game Grid */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Game Card Styles */
+.game-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 2px solid var(--primary-purple);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.game-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.game-card .game-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: bottom 0.3s ease;
+}
+
+.game-card:hover .game-title {
+  bottom: 0;
+}
+
+/* Footer */
 footer {
   background-color: var(--card-bg);
   text-align: center;
@@ -157,18 +170,4 @@ footer {
   margin-top: 40px;
   font-size: 0.9rem;
   box-shadow: 0 -2px 8px var(--accent-glow);
-}
-
-/* (Optional) Responsive adjustments */
-@media (max-width: 768px) {
-  .game-page-container {
-    flex-direction: column;
-  }
-  .game-embed-wrapper {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-  .sidebar {
-    margin-top: 20px;
-  }
 }
