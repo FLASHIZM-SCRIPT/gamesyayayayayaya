@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainSearch = document.getElementById('mainSearch');
   const filterButtons = document.querySelectorAll('.filter-btn');
 
-  // Render game grid on homepage
+  // Render the game grid on the homepage
   function renderGameGrid(games) {
     gameGrid.innerHTML = '';
     games.forEach(game => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       titleDiv.textContent = game.title;
       card.appendChild(titleDiv);
 
-      // When a game card is clicked, open the modal and load the game embed
+      // When a game card is clicked, open the modal with the game embed
       card.addEventListener('click', () => {
         openModal(game);
       });
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fetch games from games.json
+  // Fetch games data from games.json
   fetch('games.json')
     .then(response => response.json())
     .then(data => {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching games:', error));
 
-  // Open modal with selected game embed and populate sidebar with recommendations
+  // Open modal with the selected game and populate the sidebar
   function openModal(selectedGame) {
     gameIframe.src = selectedGame.embed;
     modalOverlay.style.display = 'flex';
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Populate recommended games sidebar (excluding the currently selected game)
+  // Populate recommended games in the modal sidebar (exclude the selected game)
   function populateSidebar(selectedGame) {
     sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Main search functionality: filter games by title, tags, or description
+  // Main search: filter games by title, tags, or description
   mainSearch.addEventListener('input', () => {
     const query = mainSearch.value.toLowerCase();
     const filteredGames = gamesData.filter(game =>
