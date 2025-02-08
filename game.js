@@ -1,58 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get selected game title from query parameter
+  // Get query parameter (selected game title)
   const params = new URLSearchParams(window.location.search);
   const gameTitle = params.get('game');
 
+  // Select DOM elements
   const gameIframe = document.getElementById('gameIframe');
   const sidebarContainer = document.getElementById('sidebarGames');
   const modalSearch = document.getElementById('modalSearch');
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const likeBtn = document.getElementById('likeBtn');
   const dislikeBtn = document.getElementById('dislikeBtn');
-  
+
   let gamesData = [];
-  let likeClicked = false;
-  let dislikeClicked = false;
+  let ratingGiven = false;
 
   // Fetch games.json data
   fetch('games.json')
     .then(response => response.json())
     .then(data => {
       gamesData = data;
-      // Find the selected game using the game title
+      // Find and load the selected game embed URL
       const selectedGame = gamesData.find(game => game.title === gameTitle);
       if (selectedGame) {
         gameIframe.src = selectedGame.embed;
       } else {
-        console.error("Selected game not found:", gameTitle);
+        console.error('Selected game not found:', gameTitle);
+        gameIframe.src = "";
       }
       populateSidebar(selectedGame);
     })
-    .catch(error => console.error("Error fetching games:", error));
+    .catch(error => console.error('Error fetching games:', error));
 
-  // Populate recommended sidebar (excluding selected game)
+  // Populate recommended sidebar (all games except the selected one)
   function populateSidebar(selectedGame) {
     sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
       if (selectedGame && game.title === selectedGame.title) return;
       const sidebarItem = document.createElement('div');
-      sidebarItem.classList.add('sidebar-game');
+      sidebarItem.className = 'sidebar-game';
       sidebarItem.addEventListener('click', () => {
         window.location.href = `game.html?game=${encodeURIComponent(game.title)}`;
       });
+
       const thumb = document.createElement('img');
       thumb.src = game.image;
       thumb.alt = game.title;
       sidebarItem.appendChild(thumb);
+
       const titleDiv = document.createElement('div');
-      titleDiv.classList.add('sidebar-game-title');
+      titleDiv.className = 'sidebar-game-title';
       titleDiv.textContent = game.title;
       sidebarItem.appendChild(titleDiv);
+
       sidebarContainer.appendChild(sidebarItem);
     });
   }
 
-  // Fullscreen functionality
+  // Fullscreen functionality for the iframe
   fullscreenBtn.addEventListener('click', () => {
     if (gameIframe.requestFullscreen) {
       gameIframe.requestFullscreen();
@@ -63,33 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Like/Dislike functionality (allow only one click total)
+  // One-time Like/Dislike functionality
   likeBtn.addEventListener('click', () => {
-    if (!likeClicked && !dislikeClicked) {
-      likeClicked = true;
+    if (!ratingGiven) {
+      ratingGiven = true;
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       likeBtn.classList.add('selected');
-      console.log("Liked game:", gameTitle);
-      // Optionally, send rating to server here.
-    }
-  });
-  dislikeBtn.addEventListener('click', () => {
-    if (!likeClicked && !dislikeClicked) {
-      dislikeClicked = true;
-      likeBtn.disabled = true;
-      dislikeBtn.disabled = true;
-      dislikeBtn.classList.add('selected');
-      console.log("Disliked game:", gameTitle);
-      // Optionally, send rating to server here.
+      console.log("Liked:", gameTitle);
+      // Optionally send rating info to a server
     }
   });
 
-  // Sidebar search filter functionality
+  dislikeBtn.addEventListener('click', () => {
+    if (!ratingGiven) {
+      ratingGiven = true;
+      likeBtn.disabled = true;
+      dislikeBtn.disabled = true;
+      dislikeBtn.classList.add('selected');
+      console.log("Disliked:", gameTitle);
+      // Optionally send rating info to a server
+    }
+  });
+
+  // Sidebar search filtering for recommended games
   modalSearch.addEventListener('input', () => {
     const query = modalSearch.value.toLowerCase();
     sidebarContainer.innerHTML = '';
-    const filteredGames = gamesData.filter(game => 
+    const filteredGames = gamesData.filter(game =>
       (game.title.toLowerCase().includes(query) ||
        game.tags.toLowerCase().includes(query) ||
        game.description.toLowerCase().includes(query)) &&
@@ -97,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     filteredGames.forEach(game => {
       const sidebarItem = document.createElement('div');
-      sidebarItem.classList.add('sidebar-game');
+      sidebarItem.className = 'sidebar-game';
       sidebarItem.addEventListener('click', () => {
         window.location.href = `game.html?game=${encodeURIComponent(game.title)}`;
       });
@@ -106,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       thumb.alt = game.title;
       sidebarItem.appendChild(thumb);
       const titleDiv = document.createElement('div');
-      titleDiv.classList.add('sidebar-game-title');
+      titleDiv.className = 'sidebar-game-title';
       titleDiv.textContent = game.title;
       sidebarItem.appendChild(titleDiv);
       sidebarContainer.appendChild(sidebarItem);
