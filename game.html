@@ -2,37 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Game Portal - Play Game</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Portal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="games.json"></script>
+  <script defer src="game.js"></script>
 </head>
 <body>
-  <!-- Top Bar with Logo, Search, and (optional) Navigation -->
-  <header class="top-bar">
-    <div class="logo">Game Portal</div>
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search games...">
-    </div>
-  </header>
-  
-  <!-- Main Layout: Game Embed and Sidebar -->
-  <div class="game-page-container">
-    <!-- Game Embed Area -->
-    <div class="game-embed-wrapper">
-      <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
-      <!-- Fullscreen button overlay on the embed -->
-      <button id="fullscreenBtn" class="embed-fullscreen-btn">⛶</button>
-    </div>
-    
-    <!-- Sidebar with Modern Buttons -->
-    <aside class="sidebar">
-      <h2>Other Games</h2>
-      <div class="sidebar-game-list" id="sidebarGameList">
-        <!-- Sidebar game buttons will be inserted dynamically -->
-      </div>
-    </aside>
+  <div id="top-bar">
+    <div id="logo">Game Portal</div>
+    <input type="text" id="search-bar" placeholder="Search games...">
   </div>
-  
-  <script src="game.js"></script>
-</body>
-</html>
+
+  <div id="main-container">
+    <!-- Sidebar for recommendations -->
+    <aside id="sidebar">
+      <h3>Suggested Games</h3>
+      <ul id="game-suggestions"></ul>
+    </aside>
+
+    <!-- Main content: Game iframe -->
+    <main id="game-container">
+      <iframe id="game-iframe" src="" frameborder="0"></iframe>
+      <button id="fullscreen-btn">Fullscreen</button>
+
+      <!-- Like/Dislike Section -->
+      <div id="like-dislike-container">
+        <button id="like-btn">👍 Like</button>
+        <span id="like-count">0</span>
+        <button id="dislike-btn">👎 Dislike</button>
+        <span id="dislike-count">0</span
