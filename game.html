@@ -3,33 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Play Game - DarkCutesy Game Portal</title>
+  <title>Play Game - DarkCutesy Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Top Bar -->
   <header class="top-bar">
-    <div class="modal-logo">DarkCutesy</div>
     <button class="back-btn" onclick="window.history.back();">&larr; Back</button>
+    <div class="modal-logo">DarkCutesy</div>
     <input type="text" id="modalSearch" placeholder="Search recommended...">
   </header>
-
+  
   <!-- Main Content -->
   <div class="game-page-container">
-    <!-- Game Embed Area -->
+    <!-- Embed Container -->
     <div class="embed-container">
       <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
       <button id="fullscreenBtn" class="fullscreen-btn">⛶</button>
     </div>
-    <!-- Sidebar with Recommended Games -->
+    <!-- Like/Dislike Buttons -->
+    <div class="like-dislike-container">
+      <button id="likeBtn" class="like-btn">👍 Like</button>
+      <button id="dislikeBtn" class="dislike-btn">👎 Dislike</button>
+    </div>
+    <!-- Recommended Sidebar -->
     <aside class="modal-sidebar">
       <h3>Recommended</h3>
       <div class="sidebar-games" id="sidebarGames">
-        <!-- Recommended game cards inserted dynamically -->
+        <!-- Recommended games will be inserted dynamically -->
       </div>
     </aside>
   </div>
-
+  
   <script src="game.js"></script>
 </body>
 </html>
