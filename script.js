@@ -1,121 +1,156 @@
-document.addEventListener('DOMContentLoaded', () => {
-  let gamesData = [];
-  const gameGrid = document.getElementById('gameGrid');
-  const modalOverlay = document.getElementById('modalOverlay');
-  const gameIframe = document.getElementById('gameIframe');
-  const closeModalBtn = document.getElementById('closeModal');
-  const sidebarContainer = document.getElementById('sidebarGames');
-  const fullscreenBtn = document.getElementById('fullscreenBtn');
-  const mainSearch = document.getElementById('mainSearch');
-  const filterButtons = document.querySelectorAll('.filter-btn');
+:root {
+  --bg-color: #121212;
+  --card-bg: #1f1a1a;
+  --sidebar-bg: #1e1e2d;
+  --primary-purple: #4b3f72; /* Darker, richer purple */
+  --accent-glow: rgba(75, 63, 114, 0.6);
+  --text-color: #ffffff;
+  --radius: 10px;
+  --transition: 0.3s ease;
+}
 
-  // Render the game grid on the homepage
-  function renderGameGrid(games) {
-    gameGrid.innerHTML = '';
-    games.forEach(game => {
-      const card = document.createElement('div');
-      card.classList.add('game-card');
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      const img = document.createElement('img');
-      img.src = game.image;
-      img.alt = game.title;
-      card.appendChild(img);
+/* Body & Global */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
 
-      const titleDiv = document.createElement('div');
-      titleDiv.classList.add('game-title');
-      titleDiv.textContent = game.title;
-      card.appendChild(titleDiv);
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px var(--accent-glow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-purple);
+}
+#searchInput {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid var(--primary-purple);
+  border-radius: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  outline: none;
+  transition: border-color var(--transition);
+}
+#searchInput:focus {
+  border-color: var(--primary-purple);
+}
 
-      // When a game card is clicked, open the modal with the game embed
-      card.addEventListener('click', () => {
-        openModal(game);
-      });
+/* Main Layout */
+.container {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
 
-      gameGrid.appendChild(card);
-    });
-  }
+/* Sidebar for Filtering */
+.sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-right: 20px;
+}
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-purple);
+}
+.filter {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.filter img {
+  width: 24px;
+  height: 24px;
+}
+.filter span {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+.filter:hover {
+  background-color: var(--primary-purple);
+  transform: scale(1.05);
+}
 
-  // Fetch games data from games.json
-  fetch('games.json')
-    .then(response => response.json())
-    .then(data => {
-      gamesData = data;
-      renderGameGrid(gamesData);
-    })
-    .catch(error => console.error('Error fetching games:', error));
+/* Content Area & Game Grid */
+.content {
+  flex: 1;
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-  // Open modal with the selected game and populate the sidebar
-  function openModal(selectedGame) {
-    gameIframe.src = selectedGame.embed;
-    modalOverlay.style.display = 'flex';
-    populateSidebar(selectedGame);
-  }
+/* Game Card */
+.game-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 2px solid var(--primary-purple);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+.game-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.game-card .game-title {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 10px;
+  font-size: 1.1rem;
+  transition: bottom var(--transition);
+}
+.game-card:hover .game-title {
+  bottom: 0;
+}
 
-  // Close modal
-  closeModalBtn.addEventListener('click', () => {
-    modalOverlay.style.display = 'none';
-    gameIframe.src = '';
-  });
-
-  // Fullscreen functionality
-  fullscreenBtn.addEventListener('click', () => {
-    if (gameIframe.requestFullscreen) {
-      gameIframe.requestFullscreen();
-    } else if (gameIframe.webkitRequestFullscreen) {
-      gameIframe.webkitRequestFullscreen();
-    } else if (gameIframe.msRequestFullscreen) {
-      gameIframe.msRequestFullscreen();
-    }
-  });
-
-  // Populate recommended games in the modal sidebar (exclude the selected game)
-  function populateSidebar(selectedGame) {
-    sidebarContainer.innerHTML = '';
-    gamesData.forEach(game => {
-      if (game.title === selectedGame.title) return;
-      const sidebarGame = document.createElement('div');
-      sidebarGame.classList.add('sidebar-game');
-      sidebarGame.addEventListener('click', () => {
-        openModal(game);
-      });
-
-      const thumb = document.createElement('img');
-      thumb.src = game.image;
-      thumb.alt = game.title;
-      sidebarGame.appendChild(thumb);
-
-      const title = document.createElement('div');
-      title.classList.add('sidebar-game-title');
-      title.textContent = game.title;
-      sidebarGame.appendChild(title);
-
-      sidebarContainer.appendChild(sidebarGame);
-    });
-  }
-
-  // Main search: filter games by title, tags, or description
-  mainSearch.addEventListener('input', () => {
-    const query = mainSearch.value.toLowerCase();
-    const filteredGames = gamesData.filter(game =>
-      game.title.toLowerCase().includes(query) ||
-      game.tags.toLowerCase().includes(query) ||
-      game.description.toLowerCase().includes(query)
-    );
-    renderGameGrid(filteredGames);
-  });
-
-  // Sidebar filter buttons: filter games based on tag (assuming tags are comma-separated)
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-      if (filter === 'all') {
-        renderGameGrid(gamesData);
-      } else {
-        const filteredGames = gamesData.filter(game => {
-          return game.tags.toLowerCase().split(',').map(tag => tag.trim()).includes(filter);
-        });
-        renderGameGrid(filteredGames);
-      }
-    });
-  });
-});
+/* Footer */
+footer {
+  background-color: var(--card-bg);
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  box-shadow: 0 -2px 8px var(--accent-glow);
+  color: var(--text-color);
+}
