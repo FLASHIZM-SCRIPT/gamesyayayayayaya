@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,51 +8,44 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with Logo and Search Bar -->
-  <header>
-    <div class="header-left">
-      <div class="logo">AllCutesy</div>
-    </div>
-    <div class="header-right">
-      <input type="text" id="searchInput" placeholder="Search games...">
-    </div>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo">AllCutesy</div>
+    <input type="text" id="mainSearch" placeholder="Search games...">
   </header>
 
-  <!-- Main Layout with Sidebar & Content -->
-  <div class="main-layout">
-    <!-- Sidebar with Sorting Icons -->
-    <aside class="filter-sidebar">
-      <h2>Sort By</h2>
-      <div class="filter-options">
-        <button class="filter-btn" data-filter="all">
-          <img src="all-icon.png" alt="All">
-          <span>All</span>
-        </button>
-        <button class="filter-btn" data-filter="action">
-          <img src="action-icon.png" alt="Action">
-          <span>Action</span>
-        </button>
-        <button class="filter-btn" data-filter="puzzle">
-          <img src="puzzle-icon.png" alt="Puzzle">
-          <span>Puzzle</span>
-        </button>
-        <button class="filter-btn" data-filter="racing">
-          <img src="racing-icon.png" alt="Racing">
-          <span>Racing</span>
-        </button>
-        <!-- Add more sorting buttons as needed -->
-      </div>
-    </aside>
-
-    <!-- Main Content Area -->
-    <main class="content">
-      <div class="game-grid" id="gameGrid">
-        <!-- Game cards will be inserted dynamically via script.js -->
-      </div>
-    </main>
+  <!-- Main Content: Game Grid -->
+  <div class="container">
+    <div class="game-grid" id="gameGrid">
+      <!-- Game cards are dynamically inserted here -->
+    </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Modal Window (hidden by default) -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-window">
+      <!-- Modal Top Bar -->
+      <div class="modal-top-bar">
+        <div class="modal-logo">AllCutesy</div>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Game Embed Area -->
+        <div class="embed-container">
+          <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
+          <button id="fullscreenBtn" class="fullscreen-btn">⛶</button>
+        </div>
+        <!-- Sidebar with Recommendations -->
+        <aside class="modal-sidebar">
+          <h3>Recommended</h3>
+          <div class="sidebar-games" id="sidebarGames">
+            <!-- Sidebar game cards inserted dynamically -->
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; 2025 AllCutesy Game Portal. All rights reserved.</p>
   </footer>
