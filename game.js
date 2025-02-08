@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get query parameter for selected game title
+  // Get selected game title from query parameter
   const params = new URLSearchParams(window.location.search);
   const gameTitle = params.get('game');
 
   const gameIframe = document.getElementById('gameIframe');
-  const sidebarGamesContainer = document.getElementById('sidebarGames');
+  const sidebarContainer = document.getElementById('sidebarGames');
   const modalSearch = document.getElementById('modalSearch');
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const likeBtn = document.getElementById('likeBtn');
@@ -19,21 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(data => {
       gamesData = data;
-      // Find the selected game using the title from the URL
+      // Find the selected game using the game title
       const selectedGame = gamesData.find(game => game.title === gameTitle);
       if (selectedGame) {
         gameIframe.src = selectedGame.embed;
       } else {
-        console.error('Selected game not found:', gameTitle);
-        gameIframe.src = "";
+        console.error("Selected game not found:", gameTitle);
       }
       populateSidebar(selectedGame);
     })
-    .catch(error => console.error('Error fetching games:', error));
+    .catch(error => console.error("Error fetching games:", error));
 
-  // Populate the sidebar with recommended games (excluding the selected game)
+  // Populate recommended sidebar (excluding selected game)
   function populateSidebar(selectedGame) {
-    sidebarGamesContainer.innerHTML = '';
+    sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
       if (selectedGame && game.title === selectedGame.title) return;
       const sidebarItem = document.createElement('div');
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       titleDiv.classList.add('sidebar-game-title');
       titleDiv.textContent = game.title;
       sidebarItem.appendChild(titleDiv);
-      sidebarGamesContainer.appendChild(sidebarItem);
+      sidebarContainer.appendChild(sidebarItem);
     });
   }
 
@@ -64,34 +63,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Like button: allow only one click
+  // Like/Dislike functionality (allow only one click total)
   likeBtn.addEventListener('click', () => {
     if (!likeClicked && !dislikeClicked) {
       likeClicked = true;
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       likeBtn.classList.add('selected');
-      console.log('Liked game:', gameTitle);
-      // Optionally send rating to a server here
+      console.log("Liked game:", gameTitle);
+      // Optionally, send rating to server here.
     }
   });
-
-  // Dislike button: allow only one click
   dislikeBtn.addEventListener('click', () => {
-    if (!dislikeClicked && !likeClicked) {
+    if (!likeClicked && !dislikeClicked) {
       dislikeClicked = true;
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       dislikeBtn.classList.add('selected');
-      console.log('Disliked game:', gameTitle);
-      // Optionally send rating to a server here
+      console.log("Disliked game:", gameTitle);
+      // Optionally, send rating to server here.
     }
   });
 
-  // Search functionality for sidebar recommendations
+  // Sidebar search filter functionality
   modalSearch.addEventListener('input', () => {
     const query = modalSearch.value.toLowerCase();
-    sidebarGamesContainer.innerHTML = '';
+    sidebarContainer.innerHTML = '';
     const filteredGames = gamesData.filter(game => 
       (game.title.toLowerCase().includes(query) ||
        game.tags.toLowerCase().includes(query) ||
@@ -112,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       titleDiv.classList.add('sidebar-game-title');
       titleDiv.textContent = game.title;
       sidebarItem.appendChild(titleDiv);
-      sidebarGamesContainer.appendChild(sidebarItem);
+      sidebarContainer.appendChild(sidebarItem);
     });
   });
 });
