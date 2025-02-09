@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const filterButtons = document.querySelectorAll(".filter");
 
-  // Function to render the game grid
+  // Debug: Log to verify script is running
+  console.log("Homepage script loaded.");
+
+  // Render game grid
   function renderGameGrid(games) {
     gameGrid.innerHTML = "";
     games.forEach(game => {
@@ -21,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       titleDiv.textContent = game.title;
       card.appendChild(titleDiv);
 
-      // On click, navigate to the game embed page with the selected game title
+      // On click, navigate to game.html with the game title as query parameter
       card.addEventListener("click", () => {
         window.location.href = "game.html?game=" + encodeURIComponent(game.title);
       });
@@ -30,16 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Fetch games.json data
+  // Fetch games.json
   fetch("games.json")
     .then(response => response.json())
     .then(data => {
       gamesData = data;
+      console.log("Games loaded:", gamesData.length);
       renderGameGrid(gamesData);
     })
     .catch(error => console.error("Error fetching games:", error));
 
-  // Search functionality: filter games by title, tags, or description
+  // Search filtering
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
     const filteredGames = gamesData.filter(game =>
@@ -50,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderGameGrid(filteredGames);
   });
 
-  // Filter button functionality
+  // Filter buttons functionality
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
       const filter = button.dataset.filter;
