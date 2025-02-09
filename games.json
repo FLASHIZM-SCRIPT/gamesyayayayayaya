@@ -1363,5 +1363,355 @@
         "image": "https://www.azgames.io/upload/cache/upload/imgs/cookieclickerthumb-m144x144.webp",
         "tags": "1-player,2d,arcade,free,clicker,mobile,mouse,idle,cookie,orteil",
         "description": "Mr Space Bullet is a 2D shooting game where you will be on a staircase in outer space.  While trying to climb up, you will come across many aliens on your way.  Your job is to aim at your enemies precisely at their heads. \nShoot the alien you encounter on every stair without blinking an eye."
+    },
+    {
+        "title": "Ragdoll Hit Stickman",
+        "embed": "https://azgames.io/ragdoll-hit-stickman.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/ragdollhitstickman-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Brain Lines",
+        "embed": "https://azgames.io/brain-lines.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/brainlines-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Bike Xtreme",
+        "embed": "https://azgames.io/bike-xtreme.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/bikextreme-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Hockey Random",
+        "embed": "https://azgames.io/hockey-random.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/hockeyrandom-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Chill Clicker",
+        "embed": "https://azgames.io/chill-clicker.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/chillclicker-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Omnom Jump",
+        "embed": "https://azgames.io/omnom-jump.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/omnomjump-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Jetski Race",
+        "embed": "https://azgames.io/jetski-race.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/jetskirace-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Snow Road 3D",
+        "embed": "https://azgames.io/snow-road-3d.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/snowroad3d-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Bricky Blast",
+        "embed": "https://azgames.io/bricky-blast.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/brickyblast-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Supermarket Master",
+        "embed": "https://azgames.io/supermarket-master.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/supermarketmaster-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Unchill Guy Clicker",
+        "embed": "https://azgames.io/unchill-guy-clicker.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/unchillguyclicker-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Color Rush",
+        "embed": "https://azgames.io/color-rush.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/colorrush-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Power Surfer",
+        "embed": "https://azgames.io/power-surfer.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/powersurfer-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Stickman Racing",
+        "embed": "https://azgames.io/stickman-racing.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/stickmanracing-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Shooter Sky",
+        "embed": "https://azgames.io/shooter-sky.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/shootersky-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Egg Race",
+        "embed": "https://azgames.io/egg-race.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/eggrace-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Traffic Rally",
+        "embed": "https://azgames.io/traffic-rally.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/trafficrally-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Jelly Hop",
+        "embed": "https://azgames.io/jelly-hop.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/jellyhop-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Tunnel Ball",
+        "embed": "https://azgames.io/tunnel-ball.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/tunnelball-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Sprunki",
+        "embed": "https://azgames.io/sprunki.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/sprunki-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Crossy Road",
+        "embed": "https://azgames.io/crossy-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/crossyroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Basket Random",
+        "embed": "https://azgames.io/basket-random.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/basketrandom-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Traffic Jam 3D",
+        "embed": "https://azgames.io/traffic-jam-3d.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/trafficjam3d-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Drive Mad",
+        "embed": "https://azgames.io/drive-mad.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/drivemad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Escape Road City 2",
+        "embed": "https://azgames.io/escape-road-city-2.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/escaperoadcity2-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Astro Robot Clicker",
+        "embed": "https://azgames.io/astro-robot-clicker.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/astrobotclicker-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Escape Road 2",
+        "embed": "https://azgames.io/escape-road-2.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/escaperoad2-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Escape Road Winter",
+        "embed": "https://azgames.io/escape-road-winter.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/escaperoadwinter-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Tube Fall",
+        "embed": "https://azgames.io/tube-fall.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/tubefall-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Chill Guy Clicker",
+        "embed": "https://azgames.io/chill-guy-clicker.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/chillguyclicker-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Sprunki Clicker",
+        "embed": "https://azgames.io/sprunki-clicker.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/sprunkiclicker-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Chill Girl Clicker",
+        "embed": "https://azgames.io/chill-girl-clicker.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/chillgirlclicker-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Snow Road",
+        "embed": "https://azgames.io/snow-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/snowroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Wave Road",
+        "embed": "https://azgames.io/wave-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/waveroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Temple Run 2",
+        "embed": "https://azgames.io/temple-run-2.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/templerun2-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "subway Santa",
+        "embed": "https://azgames.io/subway-santa.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/subwaysanta-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Escape Road Halloween",
+        "embed": "https://azgames.io/escape-road-halloween.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/escaperoadhalloween-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Cuby Road",
+        "embed": "https://azgames.io/cuby-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/cubyroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Drift Road",
+        "embed": "https://azgames.io/drift-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/driftroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Tap Road",
+        "embed": "https://azgames.io/tap-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/taproad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Temple Runner",
+        "embed": "https://azgames.io/temple-runner.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/templerunner-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Mountain Road",
+        "embed": "https://azgames.io/mountain-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/mountainroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Shooter Hero",
+        "embed": "https://azgames.io/shooter-hero.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/shooterhero-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Space Road",
+        "embed": "https://azgames.io/space-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/spaceroad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Slope Snowball",
+        "embed": "https://azgames.io/slope-snowball.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/slopesnowball-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Escape Vehicles",
+        "embed": "https://azgames.io/escape-vehicles.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/escapevehicles-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Escape Road",
+        "embed": "https://azgames.io/escape-road.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/escaperoad-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Slope spooky",
+        "embed": "https://azgames.io/slope-spooky.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/slopespooky-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Sugar Sugar",
+        "embed": "https://azgames.io/sugar-sugar.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/sugarsugar-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
+    },
+    {
+        "title": "Subway Surfers",
+        "embed": "https://azgames.io/subway-surfers.embed",
+        "image": "https://azgames.io/upload/cache/upload/imgs/subwaysurfers-m180x180.webp",
+        "tags": "TAGS SCRAPED",
+        "description": "NO DESCRIPTION"
     }
 ]
