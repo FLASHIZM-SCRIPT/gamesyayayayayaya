@@ -6,7 +6,7 @@
   --accent-glow: rgba(75, 63, 114, 0.6);
   --text-color: #ffffff;
   --radius: 12px;
-  --transition: 0.3s ease;
+  --transition: 0.6s ease;
 }
 
 /* Reset */
@@ -24,7 +24,7 @@ body {
   line-height: 1.6;
 }
 
-/* Header for Homepage */
+/* Homepage Header */
 .header {
   background-color: var(--card-bg);
   padding: 15px 30px;
@@ -55,7 +55,7 @@ body {
   border-color: var(--primary-purple);
 }
 
-/* Container for Homepage */
+/* Homepage Layout */
 .container {
   display: flex;
   width: 100%;
@@ -147,7 +147,7 @@ footer {
   color: var(--text-color);
 }
 
-/* Top Bar for Game Page */
+/* Game Playing Page (game.html) Styles */
 .top-bar {
   background-color: var(--card-bg);
   padding: 15px 30px;
@@ -184,8 +184,6 @@ footer {
 #modalSearch:focus {
   border-color: var(--primary-purple);
 }
-
-/* Game Playing Page Layout */
 .game-page-container {
   width: 100%;
   padding: 20px;
@@ -207,7 +205,7 @@ footer {
 }
 .embed-container iframe {
   width: 100%;
-  height: 700px; /* Increased height */
+  height: 700px;
   border: none;
   border-radius: var(--radius);
   box-shadow: 0 2px 8px var(--accent-glow);
@@ -292,8 +290,6 @@ footer {
   font-size: 0.9rem;
   background-color: var(--card-bg);
 }
-
-/* Footer for Game Page */
 footer {
   background-color: var(--card-bg);
   text-align: center;
