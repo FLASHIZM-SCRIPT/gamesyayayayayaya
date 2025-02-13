@@ -20,8 +20,8 @@
 }
 
 :root {
-	--cellSize: 92px;
-	--cellSpacing: 16px;
+	--cellSize: 20px;
+	--cellSpacing: 5px;
 	--navShadow: 0 6px 32px 0 rgba(0, 0, 0, 30%);
 	--boxShadow: rgb(0 0 0 / 24%) 0px 6px 12px 0px;
 	--bezier: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -2805,14 +2805,14 @@ html {
 .wpp-widget-placeholder,
 .wpp-widget-block-placeholder {
 	margin: 0 auto;
-	width: 60px;
-	height: 3px;
-	background: #dd3737;
-	background: linear-gradient(90deg, #dd3737 0%, #571313 10%, #dd3737 100%);
-	background-size: 200% auto;
-	border-radius: 3px;
-	-webkit-animation: bgslide 1s infinite linear;
-	animation: bgslide 1s infinite linear;
+width: 60px;
+height: 3px;
+background: url("background.jpeg") no-repeat;
+background-size: cover;
+border-radius: 3px;
+-webkit-animation: bgslide 1s infinite linear;
+animation: bgslide 1s infinite linear;
+
 }
 /* Start Project Wallace extracted inline styles */
 svg {
