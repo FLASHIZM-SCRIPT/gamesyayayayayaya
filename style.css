@@ -2,11 +2,11 @@
 
 /* Variables */
 :root {
-  --header-bg: #ffffff;
-  --header-text: #333333;
+  --header-bg: #301934;
+  --header-text: #FFFFFF;
   --bg-color: #f8f8f8;
-  --card-bg: #ffffff;
-  --card-border: #e0e0e0;
+  --card-bg: #301934;
+  --card-border: ##290133;
   --card-shadow: rgba(0, 0, 0, 0.1);
   --card-hover-shadow: rgba(0, 0, 0, 0.2);
   --primary-color: #4b3f72; /* Dark purple accent */
