@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 /* Variables */
 :root {
   --header-bg: #ffffff;
@@ -8,7 +10,7 @@
   --card-shadow: rgba(0, 0, 0, 0.1);
   --card-hover-shadow: rgba(0, 0, 0, 0.2);
   --primary-color: #4b3f72; /* Dark purple accent */
-  --font-family: 'Roboto', sans-serif;
+  --font-family: 'Fredoka One', cursive;
 }
 
 /* Global Styles */
@@ -16,7 +18,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  background: url("photo-1665652475985-37e285aeff53.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: var(--header-text);
 }
 
