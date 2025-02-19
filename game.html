@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Play Game - Nova Games</title>
+  <title>Play Game - DarkCutesy Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top Bar -->
+  <!-- Top Bar with Back and Search -->
   <header class="top-bar">
     <button class="back-btn" onclick="window.history.back();">&larr; Back</button>
-    <div class="modal-logo">Nova Games</div>
+    <div class="modal-logo">DarkCutesy</div>
     <input type="text" id="modalSearch" placeholder="Search recommended...">
   </header>
-  
+
   <!-- Game Playing Area -->
   <div class="game-page-container">
+    <!-- Embed Section -->
     <div class="game-embed-wrapper">
       <div class="embed-container">
         <iframe id="gameIframe" src="" frameborder="0" allowfullscreen></iframe>
@@ -27,7 +28,7 @@
       </div>
     </div>
     
-    <!-- Recommended Games Section -->
+    <!-- Recommended Games Sidebar -->
     <section class="recommended-games">
       <h3>Recommended Games</h3>
       <div class="sidebar-games" id="sidebarGames">
@@ -35,7 +36,7 @@
       </div>
     </section>
   </div>
-  
+
   <script src="game.js"></script>
 </body>
 </html>
