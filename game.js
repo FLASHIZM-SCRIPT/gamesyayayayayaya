@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Read selected game title from URL query parameter
+  // Get the selected game title from the query parameter (e.g., ?game=Ragdoll%20Hit%20Stickman)
   const params = new URLSearchParams(window.location.search);
   const gameTitle = params.get('game');
-
+  
   // Select DOM elements
   const gameIframe = document.getElementById('gameIframe');
   const sidebarContainer = document.getElementById('sidebarGames');
@@ -10,18 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const likeBtn = document.getElementById('likeBtn');
   const dislikeBtn = document.getElementById('dislikeBtn');
-
+  
   let gamesData = [];
   let ratingGiven = false;
-
-  // Fetch games.json data
+  
+  // Debug log to confirm script load
+  console.log("game.js loaded. Game title from URL:", gameTitle);
+  
+  // Fetch games data from games.json
   fetch('games.json')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok: " + response.status);
+      }
+      return response.json();
+    })
     .then(data => {
       gamesData = data;
-      // Find the selected game
+      // Find the selected game by title (case-sensitive matching)
       const selectedGame = gamesData.find(game => game.title === gameTitle);
       if (selectedGame) {
+        console.log("Selected game found:", selectedGame);
         gameIframe.src = selectedGame.embed;
       } else {
         console.error('Selected game not found:', gameTitle);
@@ -30,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
       populateSidebar(selectedGame);
     })
     .catch(error => console.error('Error fetching games:', error));
-
-  // Populate recommended games sidebar (exclude selected game)
+  
+  // Populate the recommended games sidebar (exclude the selected game)
   function populateSidebar(selectedGame) {
     sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
@@ -41,22 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebarItem.addEventListener('click', () => {
         window.location.href = `game.html?game=${encodeURIComponent(game.title)}`;
       });
-
+  
       const thumb = document.createElement('img');
       thumb.src = game.image;
       thumb.alt = game.title;
       sidebarItem.appendChild(thumb);
-
+  
       const titleDiv = document.createElement('div');
       titleDiv.className = 'sidebar-game-title';
       titleDiv.textContent = game.title;
       sidebarItem.appendChild(titleDiv);
-
+  
       sidebarContainer.appendChild(sidebarItem);
     });
   }
-
-  // Fullscreen functionality
+  
+  // Fullscreen toggle for the iframe
   fullscreenBtn.addEventListener('click', () => {
     if (gameIframe.requestFullscreen) {
       gameIframe.requestFullscreen();
@@ -66,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gameIframe.msRequestFullscreen();
     }
   });
-
+  
   // One-time Like/Dislike functionality
   likeBtn.addEventListener('click', () => {
     if (!ratingGiven) {
@@ -74,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       likeBtn.classList.add('selected');
-      console.log("Liked:", gameTitle);
-      // Optionally, send rating to your server
+      console.log("Liked game:", gameTitle);
+      // Optionally send rating info to your server here
     }
   });
   dislikeBtn.addEventListener('click', () => {
@@ -84,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       dislikeBtn.classList.add('selected');
-      console.log("Disliked:", gameTitle);
-      // Optionally, send rating to your server
+      console.log("Disliked game:", gameTitle);
+      // Optionally send rating info to your server here
     }
   });
-
-  // Sidebar search filtering
+  
+  // Sidebar search filtering for recommended games
   modalSearch.addEventListener('input', () => {
     const query = modalSearch.value.toLowerCase();
     sidebarContainer.innerHTML = '';
