@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top Bar with Back and Search -->
+  <!-- Top Bar -->
   <header class="top-bar">
     <button class="back-btn" onclick="window.history.back();">&larr; Back</button>
     <div class="modal-logo">DarkCutesy</div>
     <input type="text" id="modalSearch" placeholder="Search recommended...">
   </header>
 
-  <!-- Game Playing Area -->
+  <!-- Game Playing Page Layout -->
   <div class="game-page-container">
     <!-- Embed Section -->
     <div class="game-embed-wrapper">
@@ -28,15 +28,16 @@
       </div>
     </div>
     
-    <!-- Recommended Games Sidebar -->
+    <!-- Recommended Games Section -->
     <section class="recommended-games">
       <h3>Recommended Games</h3>
       <div class="sidebar-games" id="sidebarGames">
-        <!-- Recommended game cards will be inserted dynamically -->
+        <!-- Game cards inserted dynamically by game.js -->
       </div>
     </section>
   </div>
 
+  <!-- JavaScript for Game Page -->
   <script src="game.js"></script>
 </body>
 </html>
