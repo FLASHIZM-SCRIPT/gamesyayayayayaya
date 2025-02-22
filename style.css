@@ -1,36 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Variables */
+/* CSS Variables */
 :root {
-  --header-bg: #301934;
-  --header-text: #FFFFFF;
-  --bg-color: #f8f8f8;
-  --card-bg: #301934;
-  --card-border: ##290133;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --card-hover-shadow: rgba(0, 0, 0, 0.2);
-  --primary-color: #4b3f72; /* Dark purple accent */
-  --font-family: 'Fredoka One', cursive;
+  /* Primary Colors & Accents */
+  --primary-color: #dcdcdc; /* Lighter text color against dark backgrounds */
+  --accent-color: #9d50bb;  /* A bright purple accent */
+  --card-bg: rgba(0, 0, 0, 0.3); /* Semi-transparent card background */
+  --card-border: rgba(255, 255, 255, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow-hover: rgba(0, 0, 0, 0.6);
+
+  /* Font */
+  --font-family: 'Roboto', sans-serif;
+
+  /* Radii & Transitions */
+  --radius: 10px;
+  --transition: 0.3s ease;
 }
 
-/* Global Styles */
-body {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global */
+body {
   font-family: var(--font-family);
-  background: url("photo-1665652475985-37e285aeff53.jpg") no-repeat center center fixed;
+  background: url('bg-purple-lines.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: var(--header-text);
+  color: var(--primary-color);
+  line-height: 1.6;
 }
 
 /* Header */
 header {
-  background-color: var(--header-bg);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px var(--card-shadow);
+  box-shadow: 0 2px 4px var(--shadow-color);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -38,61 +49,163 @@ header {
 
 header .logo {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 2px 4px var(--shadow-hover);
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+header nav a:hover {
+  color: var(--accent-color);
+}
+
+header .search-bar {
+  position: relative;
+}
+
+header .search-bar input {
+  padding: 8px 12px;
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-color);
+  transition: border-color var(--transition);
+}
+header .search-bar input:focus {
+  border-color: #fff;
+}
+
+/* Main Container */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Sidebar (Filters) */
+.sidebar {
+  flex: 0 0 220px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  height: fit-content;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  font-size: 1.3rem;
+}
+
+.sidebar .filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform var(--transition), background-color var(--transition);
+}
+
+.sidebar .filter img {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar .filter span {
+  font-size: 1rem;
   color: var(--primary-color);
 }
 
-header input[type="text"] {
-  width: 300px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 1rem;
+.sidebar .filter:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
 }
 
-/* Game Grid Container */
+/* Content Area */
+.content {
+  flex: 1;
+}
+
+/* Game Grid */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
-  padding: 20px;
 }
 
-/* Game Card Styles */
+/* Game Cards */
 .game-card {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 8px;
+  border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: transform var(--transition), box-shadow var(--transition);
   cursor: pointer;
 }
 
 .game-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px var(--card-hover-shadow);
+  box-shadow: 0 4px 8px var(--shadow-hover);
 }
 
 .game-card img {
   width: 100%;
   display: block;
-  height: 150px;
+  height: 140px;
   object-fit: cover;
 }
 
 .game-card .game-title {
   padding: 10px;
-  font-size: 1rem;
   text-align: center;
-  background-color: var(--card-bg);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  background-color: transparent;
 }
 
 /* Footer */
 footer {
-  background-color: var(--header-bg);
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
   padding: 10px 20px;
   font-size: 0.9rem;
-  box-shadow: 0 -2px 4px var(--card-shadow);
+  box-shadow: 0 -2px 4px var(--shadow-color);
   margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .game-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }
