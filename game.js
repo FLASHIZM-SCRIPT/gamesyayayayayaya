@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get the selected game title from the query parameter (e.g., ?game=Ragdoll%20Hit%20Stickman)
+  // Parse query parameters (e.g. ?game=Ragdoll%20Hit%20Stickman)
   const params = new URLSearchParams(window.location.search);
-  const gameTitle = params.get('game');
-  
+  const gameTitle = params.get('game'); // The selected game's title
+
   // Select DOM elements
   const gameIframe = document.getElementById('gameIframe');
   const sidebarContainer = document.getElementById('sidebarGames');
@@ -10,62 +10,62 @@ document.addEventListener('DOMContentLoaded', () => {
   const fullscreenBtn = document.getElementById('fullscreenBtn');
   const likeBtn = document.getElementById('likeBtn');
   const dislikeBtn = document.getElementById('dislikeBtn');
-  
+
   let gamesData = [];
   let ratingGiven = false;
-  
-  // Debug log to confirm script load
-  console.log("game.js loaded. Game title from URL:", gameTitle);
-  
-  // Fetch games data from games.json
+
+  // Debug log to ensure script loaded
+  console.log('game.js loaded, selected game =', gameTitle);
+
+  // Fetch games from games.json
   fetch('games.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok: " + response.status);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       gamesData = data;
-      // Find the selected game by title (case-sensitive matching)
+      // Find the selected game by title
       const selectedGame = gamesData.find(game => game.title === gameTitle);
       if (selectedGame) {
-        console.log("Selected game found:", selectedGame);
+        console.log('Selected game found:', selectedGame);
         gameIframe.src = selectedGame.embed;
       } else {
         console.error('Selected game not found:', gameTitle);
-        gameIframe.src = "";
+        gameIframe.src = '';
       }
+      // Populate the recommended sidebar
       populateSidebar(selectedGame);
     })
-    .catch(error => console.error('Error fetching games:', error));
-  
-  // Populate the recommended games sidebar (exclude the selected game)
+    .catch(error => console.error('Error loading games:', error));
+
+  // Populate recommended games (excluding the current one)
   function populateSidebar(selectedGame) {
     sidebarContainer.innerHTML = '';
     gamesData.forEach(game => {
+      // Skip the current game
       if (selectedGame && game.title === selectedGame.title) return;
-      const sidebarItem = document.createElement('div');
-      sidebarItem.className = 'sidebar-game';
-      sidebarItem.addEventListener('click', () => {
+
+      // Create the sidebar card
+      const card = document.createElement('div');
+      card.className = 'sidebar-game';
+      card.addEventListener('click', () => {
+        // Navigate to the same page with a different ?game= param
         window.location.href = `game.html?game=${encodeURIComponent(game.title)}`;
       });
-  
-      const thumb = document.createElement('img');
-      thumb.src = game.image;
-      thumb.alt = game.title;
-      sidebarItem.appendChild(thumb);
-  
+
+      const img = document.createElement('img');
+      img.src = game.image;
+      img.alt = game.title;
+      card.appendChild(img);
+
       const titleDiv = document.createElement('div');
       titleDiv.className = 'sidebar-game-title';
       titleDiv.textContent = game.title;
-      sidebarItem.appendChild(titleDiv);
-  
-      sidebarContainer.appendChild(sidebarItem);
+      card.appendChild(titleDiv);
+
+      sidebarContainer.appendChild(card);
     });
   }
-  
-  // Fullscreen toggle for the iframe
+
+  // Fullscreen toggle
   fullscreenBtn.addEventListener('click', () => {
     if (gameIframe.requestFullscreen) {
       gameIframe.requestFullscreen();
@@ -75,54 +75,58 @@ document.addEventListener('DOMContentLoaded', () => {
       gameIframe.msRequestFullscreen();
     }
   });
-  
-  // One-time Like/Dislike functionality
+
+  // One-time Like/Dislike
   likeBtn.addEventListener('click', () => {
     if (!ratingGiven) {
       ratingGiven = true;
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       likeBtn.classList.add('selected');
-      console.log("Liked game:", gameTitle);
-      // Optionally send rating info to your server here
+      console.log('Liked game:', gameTitle);
+      // Optionally send data to your server
     }
   });
+
   dislikeBtn.addEventListener('click', () => {
     if (!ratingGiven) {
       ratingGiven = true;
       likeBtn.disabled = true;
       dislikeBtn.disabled = true;
       dislikeBtn.classList.add('selected');
-      console.log("Disliked game:", gameTitle);
-      // Optionally send rating info to your server here
+      console.log('Disliked game:', gameTitle);
+      // Optionally send data to your server
     }
   });
-  
-  // Sidebar search filtering for recommended games
+
+  // Search filtering for recommended games
   modalSearch.addEventListener('input', () => {
     const query = modalSearch.value.toLowerCase();
     sidebarContainer.innerHTML = '';
-    const filteredGames = gamesData.filter(game =>
+    const filtered = gamesData.filter(game =>
       (game.title.toLowerCase().includes(query) ||
        game.tags.toLowerCase().includes(query) ||
        game.description.toLowerCase().includes(query)) &&
       game.title !== gameTitle
     );
-    filteredGames.forEach(game => {
-      const sidebarItem = document.createElement('div');
-      sidebarItem.className = 'sidebar-game';
-      sidebarItem.addEventListener('click', () => {
+    filtered.forEach(game => {
+      const card = document.createElement('div');
+      card.className = 'sidebar-game';
+      card.addEventListener('click', () => {
         window.location.href = `game.html?game=${encodeURIComponent(game.title)}`;
       });
-      const thumb = document.createElement('img');
-      thumb.src = game.image;
-      thumb.alt = game.title;
-      sidebarItem.appendChild(thumb);
+
+      const img = document.createElement('img');
+      img.src = game.image;
+      img.alt = game.title;
+      card.appendChild(img);
+
       const titleDiv = document.createElement('div');
       titleDiv.className = 'sidebar-game-title';
       titleDiv.textContent = game.title;
-      sidebarItem.appendChild(titleDiv);
-      sidebarContainer.appendChild(sidebarItem);
+      card.appendChild(titleDiv);
+
+      sidebarContainer.appendChild(card);
     });
   });
 });
